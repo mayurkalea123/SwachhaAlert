@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 160 20% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 160 20% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 20% 8%;
+    --primary: 158 64% 32%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 158 30% 92%;
+    --secondary-foreground: 158 64% 20%;
+    --muted: 160 15% 94%;
+    --muted-foreground: 160 10% 48%;
+    --accent: 158 40% 88%;
+    --accent-foreground: 158 64% 20%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 158 20% 88%;
+    --input: 158 20% 88%;
+    --ring: 158 64% 32%;
+    --radius: 0.75rem;
+    --sidebar-background: 160 20% 8%;
+    --sidebar-foreground: 158 20% 88%;
+    --sidebar-primary: 158 64% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 160 20% 14%;
+    --sidebar-accent-foreground: 158 20% 88%;
+    --sidebar-border: 160 15% 16%;
+    --sidebar-ring: 158 64% 42%;
+  }
+
+  .dark {
+    --background: 160 20% 6%;
+    --foreground: 158 20% 94%;
+    --card: 160 18% 10%;
+    --card-foreground: 158 20% 94%;
+    --popover: 160 18% 10%;
+    --popover-foreground: 158 20% 94%;
+    --primary: 158 60% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 160 15% 18%;
+    --secondary-foreground: 158 20% 88%;
+    --muted: 160 15% 18%;
+    --muted-foreground: 158 15% 58%;
+    --accent: 160 20% 20%;
+    --accent-foreground: 158 20% 88%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 160 15% 18%;
+    --input: 160 15% 18%;
+    --ring: 158 60% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3 {
+    font-family: 'Sora', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+  .glass-dark {
+    background: rgba(15, 35, 25, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .gradient-brand {
+    background: linear-gradient(135deg, hsl(158, 64%, 28%) 0%, hsl(160, 84%, 35%) 100%);
+  }
+  .gradient-hero {
+    background: linear-gradient(160deg, hsl(158, 64%, 12%) 0%, hsl(160, 70%, 20%) 50%, hsl(158, 60%, 28%) 100%);
+  }
+  .pulse-ring {
+    animation: pulseRing 2s ease-out infinite;
+  }
+  @keyframes pulseRing {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
+  .ai-glow {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.45), 0 0 48px rgba(16, 185, 129, 0.2);
+  }
+  .slide-in-up {
+    animation: slideInUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes slideInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .truck-bounce {
+    animation: truckBounce 0.9s ease-in-out infinite alternate;
+  }
+  @keyframes truckBounce {
+    from { transform: translateX(0); }
+    to { transform: translateX(7px); }
+  }
+  .report-flash {
+    animation: reportFlash 0.5s ease-out;
+  }
+  @keyframes reportFlash {
+    0% { background-color: rgba(16, 185, 129, 0.3); }
+    100% { background-color: transparent; }
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
